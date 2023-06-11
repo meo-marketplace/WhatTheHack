@@ -8,8 +8,6 @@ The challenge updates the file: `src/client/landing.html`
 
 The suggested code is listed below in the section **// -- REMOVE FOR STUDENT -- //**
 
-### DOES THIS NEED NGROK?
-
 ```
         // --- REMOVE FOR STUDENT --- //
         var pca = new msal.PublicClientApplication({
@@ -44,3 +42,8 @@ The suggested code is listed below in the section **// -- REMOVE FOR STUDENT -- 
         }
         // --- REMOVE FOR STUDENT --- //
 ```
+
+**Troubleshooting:**
+If the authentication fails and the solution is configured correctly **and** the student is using WSL check the time on the WSL clock, type `date` in the WSL terminal.
+If the WSL clock is out of sync with the Windows clock run the following command in the WSL terminal:
+`sudo hwclock -s`. Check the time again with `date` and retry the authentication.

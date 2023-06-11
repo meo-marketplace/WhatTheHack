@@ -4,17 +4,9 @@
 
 ## Notes & Guidance
 
-This is the only section you need to include.
+There is a configutation track that requires limited code changes to configure the solution. The code track requires more code changes and is more challenging.
 
-Use general non-bulleted text for the beginning of a solution area for this challenge
+**Ensure the student is provided the appropriate .zip file for the track they are working on.**
 
-- Then move into bullets
-  - And sub-bullets and even
-    - sub-sub-bullets
-
-Break things apart with more than one bullet list
-
-- Like this
-- One
-- Right
-- Here
+**Troubleshooting:**
+If there are any problems with Node.js check the student is in the correct terminal - CMD, Bash or WSL. 

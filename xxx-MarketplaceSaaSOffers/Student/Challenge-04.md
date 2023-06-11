@@ -8,18 +8,30 @@ You must have completed **Challenge 03 - Emulate!**
 
 ## Introduction
 
-When a customer indicates their intention to purchase your solution in the marketplace, they are directed to your
-landing page. The query string contains a token that is used to understand some basic details about the customer and
+In the Commercial Marketplace when a customer indicates their intention to purchase your solution in the marketplace, they are directed to your landing page passing the query string token that, as seen, contains the basic details about the customer and
 their desired purchase. The landing page is also your opportunity to capture any additional information as part of the
-onboarding journey and confirm the customer's purchase.
+onboarding and confirm the customer's purchase.
 
 In Challenge 01, we started work on our own landing page. We extracted the token from the query string and stored it
-in a variable. In this challenge we will extend our landing page by adding functionality to decode purchase tokens.
+in a variable. In this challenge the landing page is extended to decode purchase tokens.
+
+This is the point in development, you have a basic landing page, where you direct the Emulator mock purchase to that page, instead of the built in page.
 
 ## Description
 
 In this challenge we will extend our landing page by calling the marketplace `resolve` API to decode a purchase token
 and display some details from the decoded token in the landing page UI.
+
+**Configuration Track**
+
+You should now be familiar with the marketplace workflow from the emulator. We are going to switch out the inbuilt landing page for that in the sample app.
+- The URL is set in the Config page, copy the Landing Page URL from your sample app to the config box and set. 
+**Note:** Change just the landing page
+- The 'Subscription Name' should begin with 'C4' (if there are multiple subscriptions just use this preface for each)
+
+**Code Track**
+
+Complete the Emulator config as above.
 
 In Challenge-01, you were working in the client-side JavaScript. In practice, most of the work will be done server-side
 to avoid cross-domain issues and manage the authentication with the marketplace APIs. In this challenge you will be
@@ -49,22 +61,9 @@ The emulator should be available on `http://localhost:3978`
 
 To complete this challenge successfully, you should be able to:
 
-- Make sure the emulator is running & start your application
-- Make sure the Landing Page URL is set to point to your application landing page
-  - This can be set on the emulator "Config" page or as an environment variable (see Learning resources)
-- Navigate to `http://localhost:3000/` and click the "Resolve Token" button
-  - Confirm that your app does not crash, a suitable message is displayed and the error is logged to the console
-- Navigate to `http://localhost:3000/?token=` and click the "Resolve Token" button
-  - Confirm that your app does not crash, a suitable message is displayed and the error is logged to the console
-- Navigate to `http://localhost:3000/?token=abc` and click the "Resolve Token" button
-  - Confirm that your app does not crash, a suitable message is displayed and the error is logged to the console
-- Visit the emulator "Marketplace Token" page and set
-  - `offerId` to "flat-rate"
-  - `planId` to "flat-rate-1"
-- Click "Generate token" and then "Post to landing page"
-  - Confirm that your landing page appears
-- Click "Get Token from query string" then "Resolve Token"
-  - Confirm that the token has been decoded and its properties are displayed in the resolve token section
+- Post token from the emulator to the sample app landing page
+- Resolve the token in the sample app - observe the token properties in the resolve token section
+- Confirm that your subscription is listed and is in "Pending" status in the Emulator subscriptions list
 
 ## Learning Resources
 

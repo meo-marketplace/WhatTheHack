@@ -10,7 +10,7 @@ APIs. This code will be responsible for informing the marketplace of changes of 
 the marketplace.
 
 In order to authenticate with the marketplace APIs you use Partner Center to create and publish a SaaS offer to at least
-"preview" stage. To get going quickly, rather than do this we will use an emulator designed to emulate the behaviour of
+"preview" stage. To get going quickly, rather than do this we will use an emulator designed to mimic the behaviour of
 the SaaS Fulfillment APIs. This makes it easy to make changes and doesn't require access to Partner Center. It is important
 to understand that final testing must always be carried out against the marketplace APIs themselves, the emulator is a
 tool to accelerate development.
@@ -19,13 +19,11 @@ tool to accelerate development.
 
 In this challenge you "install" and launch the emulator to be used for testing.
 
-Clone the
+**Configuration and Code Tracks**
+- Clone the
 [Microsoft Commercial Marketplace API Emulator](https://github.com/microsoft/Commercial-Marketplace-SaaS-API-Emulator)
 into a folder on your machine
-
-Your task is to launch the emulator using your preferred method
-
-- The emulator should be made available on `http://localhost:3978`
+- Launch the emulator using your preferred method
 
 ## Success Criteria
 

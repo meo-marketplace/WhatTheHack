@@ -24,7 +24,8 @@ This challenge will focus on the tenant-wide model. The goal will be to assign a
 
 **Configuration Track**
 
-*There is no additional configuration required to complete challenge 07.*
+*There is no additional configuration required to complete challenge 07.* 
+You should still work through the items in the Success Criteria section to ensure you are ready for the next challenge.
 
 **Code Track**
 

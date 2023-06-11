@@ -4,17 +4,9 @@
 
 ## Notes & Guidance
 
-This is the only section you need to include.
 
-Use general non-bulleted text for the beginning of a solution area for this challenge
 
-- Then move into bullets
-  - And sub-bullets and even
-    - sub-sub-bullets
-
-Break things apart with more than one bullet list
-
-- Like this
-- One
-- Right
-- Here
+**Troubleshooting:**
+If the authentication fails and the solution is configured correctly **and** the student is using WSL check the time on the WSL clock, type `date` in the WSL terminal.
+If the WSL clock is out of sync with the Windows clock run the following command in the WSL terminal:
+`sudo hwclock -s`. Check the time again with `date` and retry the authentication.

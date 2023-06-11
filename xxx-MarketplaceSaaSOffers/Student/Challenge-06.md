@@ -13,9 +13,12 @@ Complete Challenge 5 to have a working understanding of implementing an API.
 So far you have the curated experience calling the APIs through the Emulator UI and built out an API call to activate a subscription, from which you should have an understanding of the parameters required to call the APIs directly. The next stage is to review the API requests and responses across the subscription workflow, the next level of depth, to know what you are building for your own integrations. 
 
 ## Description
-
 In this challenge we will us the REST APIs in the Emulator project to run through the workflow.
 
+**Configuration Track**
+This challenge is optional, but recommended, to get a sense of what is happening, the exchange between the Landing Page and the Emulator. The challenge looks and feels like a code track but is adding 
+
+**Code Track**
 Open the cloned Emulator project in VS Code.
 
 For this challenge you will need the **VS Code 'REST client' extension**. To check that it is installed select Extensions from the vertical toolbar on the left or Ctrl+Shift+X. 
@@ -48,5 +51,5 @@ To complete this challenge successfully, you should be able to:
 
 
 ## Tips
-- Confirm all settings in the .http file - some values will vary from the standard configuration to your environment. 
-- Pay attention to the vriables in the APIs request strings - served via environment variables and request body.
+- Confirm all settings in the .http file - some values will vary from the standard configuration to your environment
+- Pay attention to the vriables in the APIs request strings - served via environment variables and request body

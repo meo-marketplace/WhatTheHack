@@ -23,31 +23,32 @@ onboarding journey and confirm the customer's purchase.
 
 ## Description
 
-In this challenge you will configure an initial landing page for your solution.
+In this challenge you will configure an initial landing page for your solution to extract a value from the query string, which would be a marketplace token in a live environment (or syntheic token from the Emulator).
 
-A skeleton application that will be used throughout the hack can be found in the `/Challenge01` folder of the
-`Resources.zip` file provided by your coach. In this challenge you will be working on the `landing.html` file which
-can be found in the `src/client` folder.
+The sample application provided by the coach includes the Landing Page - `landing.html`.
+**Note:** the sample app includes sections relevant to a challenge, ignore any prior to reaching that challenge number.
 
+**Configuration Tracks**
+- Load the sample app Landing Page
+- Update the URL to add the variable `?token` with a value of `my-token`
+
+**Code Track**
 There are a number of JavaScript methods in `landing.html`. In this challenge we will only be concerned with the
 function `queryButtonClick()` which has an empty implementation.
 
 Your task is to update the function `queryButtonClick()` in `landing.html` to:
-
 - Extract the query parameters from the URL
 - Extract the value of the query string parameter `token`
 - Assign that value to the variable `token` (already declared at block scope)
-- Set the text property of the HTML element with id `raw-token` to the value of the `token` variable
+- Set the text property of the HTML element with id `my-token` to the value of the `token` variable
 - Note, jQuery is already referenced on the page for you to use if you would like
 
 ## Success Criteria
 
 To complete this challenge successfully, you should be able to:
-
-- Verify that your landing page ("What the hack - Landing Page") displays when you hit F5 / Run + Debug
-- Change the URL to `http://localhost:3000/?token=my-token`
-- Verify that "my-token" is displayed when a user clicks the "Get token from query string" button. You may have to
-expand the "Click here to expand / collapse" element to see the raw token.
+- Verify that your landing page ("What the hack - Landing Page") displays
+- Change the URL to add the token
+- Verify the "my-token" is displayed in the landing page box labelled Challenge 01.
 
 ## Learning Resources
 
