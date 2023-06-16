@@ -10,8 +10,9 @@ You must have completed **Challenge 02 - Installing the emulator**
 
 Now we have the emulator working, we can exercise it a little to get a feel for the APIs and understand the emulator features.
 
-As well as emulating the marketplace SaaS Fulfillment APIs, the emulator also offers some configuration UI and simple
-implementations of a landing page and webhook. We will implement our own landing page and webhook as we work through
+With emulating the marketplace SaaS Fulfillment APIs, the emulator also offers configuration to mimic the real world, simple implementations of a landing page and webhook, and custom offer creation. 
+
+We will implement our own landing page and webhook as we work through
 later challenges. For now, it will be useful to explore an end-to-end purchase scenario using the built-in emulator features.
 
 When you browse to the emulator, you will be presented with the Emulator homepage and a menu showing the pages available:
@@ -19,19 +20,20 @@ When you browse to the emulator, you will be presented with the Emulator homepag
 - Marketplace (homepage)
   - Here you can configure and generate "synthetic" purchase tokens similar those used by the marketplace
   - The format of marketplace tokens is undocumented - we can consider them to be opaque
-  - The only thing to keep in mind is that the token are not interchangeable between emulator and marketplace
+  - The only thing to keep in mind is that while they interact with your assets in the same way the individual tokens are not interchangeable between emulator and marketplace
 - Subscriptions
   - Displays details of the current subscriptions (purchases) and their status
+  - Displays the actions that have been taken on the subscription and the responses from the webhook
   - On this page you can also simulate marketplace actions (eg the user may request a plan change via the portal)
 - Landing Page
   - This is the default, built-in landing page implementation
   - This page will automatically decode the token from the token query string parameter in the URL
 - Offers
   - Create and configure custom offers - a simplified version of what you get in Partner Center
-  - The full plan options are not available
+  - Note, the full plan options are not available but are sufficient to track real world scenarios
 - Config
   - Here, various aspects of the emulator can be configured
-  - When we have built our own landing page, we could configure the emulator to use it here
+  - When we have built our own landing page, we would configure the emulator to use it here
 
 ## Description
 
@@ -41,7 +43,7 @@ the marketplace and activate the subscription. Finally we will try to change to 
 **Configuration and Code Tracks**
 
 - Make sure the emulator is running - it should be available on `http://localhost:3978`
-- While the commercial team typically creates Offers and Plans (in Partner Center) using the custom plan feature of the emulator gives and understanding of the basic dimenions of offers
+- While the partner commercial team typically creates Offers and Plans (in Partner Center) using the custom plan feature of the emulator gives and understanding of the basic dimenions of offers
 - Following this activity you should have an understanding of the lifecycle of an offer - and functionality of the Emulator
 - It is worth noting that the Emulator allows testing of certain APIs not avilable through Partner Center Preview Offers, for example, Suspend and Reinstate
 
@@ -49,14 +51,14 @@ the marketplace and activate the subscription. Finally we will try to change to 
 
 To complete this challenge successfully, you should be able to:
 
-- Describle the functions of the different sections of the Emulator
-- Create a custom Offer and Plan
-- Make a purchase of at least your custom offer and a second of another type (per offer/flat rate) in doing so:
-  - Generate a purchase token and decode it using any Base64 decoder utility
-  - Confirm the Base64 result matches the original JSON token
-  - Activate the subscription on the built-in Landing Page
-- Use the Subscriptions page to observe actions for offer and plan states
-  - Observe the responses and delays
+- Be able to describle the functions of the different sections of the Emulator
+- Custom Offer and Plan
+- Have purchased of at least your custom offer and a second of another type (per offer/flat rate) in doing so:
+  - Generated and decoded a purchase token using any Base64 decoder utility
+  - Confirmed the Base64 result matches the original JSON token
+  - Activated a subscription 
+- Used the Subscriptions page to observe actions for offer and plan states
+  - Observed the responses and delays
 
 ## Learning Resources
 

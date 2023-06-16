@@ -27,16 +27,19 @@ This challenge will focus on the tenant-wide model. The goal will be to assign a
 *There is no additional configuration required to complete challenge 07.* 
 You should still work through the items in the Success Criteria section to ensure you are ready for the next challenge.
 
+The check will involve:
+- Make a purchase of a flat-rate offer, setting the beneficiary details in the purchase tile of the Marketplace section of the Emulator
+- Activate the subscription (of that purchase)
+
 **Code Track**
 
-- Adding to the code written for Challenge 05, when a subscription is activated by way of calling the `/api/activate`, assign an entitlement to the tenant in `api.ts`.
+- Adding to the code written for Challenge 05, when a subscription is activated by way of calling the `/api/activate`, assign an entitlement to the tenant in `api.ts`, below `// Challenge 07 - Tracking entitlement`.
 
 *Note: An assignment can be made by calling the `saveEntitlement(tenantId, planId, active)` method exported from the `entitlement-api.ts` file.*
+
+Check using the steps detailed in the Configuration Track section above.
 
 ## Success Criteria
 
 To complete this challenge successfully, you should be able to:
-- Make a purchase of a flat-rate offer
-- Activate the subscription
-- Assign an entitlement to the beneficiary tenant 
 - Verify the entitlement has been assigned by navigating to `/entitlements.html`

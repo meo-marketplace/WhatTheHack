@@ -2,8 +2,6 @@
 
 [< Previous Challenge](./Challenge-05.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-07.md)
 
-***This is a template for a single challenge. The italicized text provides hints & examples of what should or should NOT go in each section.  You should remove all italicized & sample text and replace with your content.***
-
 ## Pre-requisites 
 
 Complete Challenge 5 to have a working understanding of implementing an API.
@@ -16,14 +14,14 @@ So far you have the curated experience calling the APIs through the Emulator UI 
 In this challenge we will us the REST APIs in the Emulator project to run through the workflow.
 
 **Configuration Track**
-This challenge is optional, but recommended, to get a sense of what is happening, the exchange between the Landing Page and the Emulator. The challenge looks and feels like a code track but is adding 
+This challenge is optional but recommended, to get a sense of the workflow, the exchange between the Landing Page and the Emulator. The challenge looks and feels like a code track but is adding values on a VS Code page.
 
 **Code Track**
 Open the cloned Emulator project in VS Code.
 
 For this challenge you will need the **VS Code 'REST client' extension**. To check that it is installed select Extensions from the vertical toolbar on the left or Ctrl+Shift+X. 
 You should see the REST Client listed in the **INSTALLED** Extensions. 
-If the extension is not present, use search box at the top of the column to find and install it.
+If the extension is not present refer to **Challenge 0**.
 
 You will need the following in place to complete the challenge: 
 - at least one active per user subcription in the Emulator
@@ -32,7 +30,7 @@ You will need the following in place to complete the challenge:
 
 Work through the following: 
 - Use a Token in the Emulator to resolve and activate using the **REST APIs in VS Code**
-- Using VS Code update the quantity and plan for an existing Subscruption, from the Emulator
+- Using VS Code update the quantity and plan for an existing Subscruption
 - Exercise all Subscription APIs in the VS Code 
 
 
@@ -40,9 +38,9 @@ Work through the following:
 
 To complete this challenge successfully, you should be able to:
 - Resolve a Marketplace Purchase token using the REST APIs
-- Activate a subscription using the APIs only.
+- Activate a subscription using the APIs only
 - Exercise APIs against an existing Subscription created in the Emulator
-- Validate the JSON returned from API calls.
+- Validate the JSON returned from API calls
 - Explain the different between Purchasher and Beneficiary - included in the Resolve Response
 
 ## Learning Resources

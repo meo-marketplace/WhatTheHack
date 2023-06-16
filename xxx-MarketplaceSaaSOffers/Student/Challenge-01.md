@@ -13,8 +13,7 @@ There are 4 principle actors in the process that manages the lifecycle of transa
 
 ![marketplace actors](Images/Challenge1.png)
 
-We will cover all these areas in this *What The Hack*. In this challenge we will start with the landing page which
-is critical to the new customer onboarding experience.
+We will cover all these areas in this *What The Hack*. In this challenge we will start with the landing page which is critical to the new customer onboarding experience.
 
 When a customer indicates their intention to purchase your solution in the marketplace, they are directed to your
 landing page. The query string contains a token that is used to understand some basic details about the customer and
@@ -25,15 +24,15 @@ onboarding journey and confirm the customer's purchase.
 
 In this challenge you will configure an initial landing page for your solution to extract a value from the query string, which would be a marketplace token in a live environment (or syntheic token from the Emulator).
 
-The sample application provided by the coach includes the Landing Page - `landing.html`.
-**Note:** the sample app includes sections relevant to a challenge, ignore any prior to reaching that challenge number.
+The sample application provided by the coach includes the Landing Page - `landing.html`.  
+**Note:** the sample app and code is marked to the respective challenge, ignore any lower than the current challenge number.
 
 **Configuration Tracks**
 - Load the sample app Landing Page
 - Update the URL to add the variable `?token` with a value of `my-token`
 
 **Code Track**
-There are a number of JavaScript methods in `landing.html`. In this challenge we will only be concerned with the
+There are a number of JavaScript methods in `landing.html` (in src/client). In this challenge we will only be concerned with the
 function `queryButtonClick()` which has an empty implementation.
 
 Your task is to update the function `queryButtonClick()` in `landing.html` to:
@@ -41,7 +40,7 @@ Your task is to update the function `queryButtonClick()` in `landing.html` to:
 - Extract the value of the query string parameter `token`
 - Assign that value to the variable `token` (already declared at block scope)
 - Set the text property of the HTML element with id `my-token` to the value of the `token` variable
-- Note, jQuery is already referenced on the page for you to use if you would like
+- **Note:** jQuery is already referenced on the page for you to use if you would like
 
 ## Success Criteria
 

@@ -24,8 +24,8 @@ and display some details from the decoded token in the landing page UI.
 
 **Configuration Track**
 
-You should now be familiar with the marketplace workflow from the emulator. We are going to switch out the inbuilt landing page for that in the sample app.
-- The URL is set in the Config page, copy the Landing Page URL from your sample app to the config box and set. 
+You should now be familiar with the marketplace workflow from the emulator. We are going to switch out the Emulator's inbuilt landing page for that in the sample app.
+- The URL is set in the Config page, copy the Landing Page URL from your sample app to the config box and Set. 
 **Note:** Change just the landing page
 - The 'Subscription Name' should begin with 'C4' (if there are multiple subscriptions just use this preface for each)
 
@@ -45,7 +45,7 @@ The client-side function is already implemented for you as `decodeButtonClick()`
 to the TypeScript function `resolveToken()` defined in `src/service/api.ts`.
 
 In this challenge we will only be concerned with the function `resolveToken()` in `src/service/api.ts`. The function
-currently has an empty implementation.
+currently has an empty implementation below the placeholder `// Challenge 04 - Decoding purchase tokens`.
 
 Your task it to update the `resolveToken()` implementation to call the marketplace `resolve` API and return the result
 to the caller handling any errors along the way.
@@ -61,9 +61,9 @@ The emulator should be available on `http://localhost:3978`
 
 To complete this challenge successfully, you should be able to:
 
-- Post token from the emulator to the sample app landing page
-- Resolve the token in the sample app - observe the token properties in the resolve token section
-- Confirm that your subscription is listed and is in "Pending" status in the Emulator subscriptions list
+- A purchase token posted from the Emulator to the Sample App landing page
+- The token is resolved in the Sample App - observe the token properties in the resolve token section
+- Your subscription is listed and is in "Pending" status in the Emulator subscriptions list
 
 ## Learning Resources
 

@@ -6,7 +6,7 @@
 
 In the vast majority of cases, a SaaS solution will need to know some information about the current user in order to ensure they are allowed to use the application.
 
-*Note: This hack will not extend into configured Single-Sign-On into your own solution and will focus only on meeting the requirements of the landing page and checking that a particular tenant has access to the solution*
+**Note:** This hack will not extend into configured Single-Sign-On into your own solution and will focus only on meeting the requirements of the landing page and checking that a particular tenant has access to the solution
 
 ## Description
 
@@ -14,14 +14,13 @@ There are two scenarios covered in this challenge. The first is to satisfy the r
 
 **Configuration and Code Tracks**
 
-- Define an Azure Active Directory App Registration
-- Ensure that this is multi-tenant
-- Configure the return URL for a Single Page Application as `{your base uri}/saas.html` and `{your base uri}/landing.html` replacing `{your base uri}` with the URI your sample app is running on
-- Configure the MSAL_CLIENT_ID and MSAL_REDIRECT_BASEURI values appropriately
+- Define a multi-tenant Azure Active Directory App Registration
+- Configure the return URL for a Single Page Application as `{your base uri}/saas.html` and `{your base uri}/landing.html`, replacing `{your base uri}` with the URI your sample app is running on
+- Configure the MSAL_CLIENT_ID and MSAL_REDIRECT_BASEURI values appropriately in the esixting `.env` file, in the root of the Sample App
 
 **Code Track**
 
-- Replace the alert ("Challenge 09 - SSO") with the code to sign in a user with a work account
+- In the section under `// Challenge 09 - SSO` Replace the alert with the code to sign in a user with a work account
 - Do this in both the `landing.html` and `saas.html` pages
 
 ## Success Criteria
@@ -34,3 +33,5 @@ To complete this challenge successfully, you should be able to:
 ## Learning Resources
 
 - [Azure Active Directory App Registration](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app)
+- [Initialize MSAL.js 2.x apps](https://learn.microsoft.com/en-us/azure/active-directory/develop/msal-js-initializing-client-applications#initialize-msaljs-2x-apps)
+- [loginRedirect(RedirectRequest)](https://learn.microsoft.com/en-us/javascript/api/@azure/msal-browser/publicclientapplication#@azure-msal-browser-publicclientapplication-loginredirect)

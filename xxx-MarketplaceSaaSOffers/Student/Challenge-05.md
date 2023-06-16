@@ -9,7 +9,7 @@ You must have completed **Challenge 04 - Decoding purchase tokens**
 ## Introduction
 
 Now that we've resolved (decoded) the purchase token on our landing page, the next step is to activate the subscription.
-Typically, you might present some key properties from the decoded purchase to the customer on the landing and ask them to
+As seen in the Emulator challenge you would typically present some key properties from the decoded purchase to the customer on the landing and ask them to
 complete any additional details required for onboarding to your solution.
 
 When the customer submits the form, they are finalising the "purchase". You, as the ISV, then complete whatever steps
@@ -22,7 +22,7 @@ In this challenge we will activate a subscription, take note of where the action
  
 **Configuration Track**
 - Create a new purchase
-- The 'Subscription Name' should begin with 'C5' (if there are multiple subscriptions just use this preface for each)
+- The 'Subscription Name' should begin with 'C5' (if there are multiple subscriptions use this preface for each)
 - Resolve as before - note the subscription state in the Emulator
 - Activate in the Sample App - note the subscription state change
 
@@ -33,7 +33,7 @@ simple; we wont collect any additional customer details and we wont concern ours
 
 The client-side function is already implemented for you as `activateButtonClick()` in `landing.html`. This calls
 `api/activate` which is the API we need to implement. Routing has been configured to route POST requests to `api/activate`
-to the TypeScript function `activateSubscription()` defined in `src/service/api.ts`.
+to the TypeScript function `activateSubscription()` defined in `src/service/api.ts`, under `// Challenge 05 - Activate!`.
 
 In this challenge we will only be concerned with the function `activateSubscription()` in `src/service/api.ts`. The function
 currently has an empty implementation.
@@ -51,7 +51,7 @@ The emulator should be available on `http://localhost:3978`
 ## Success Criteria
 
 To complete this challenge successfully, you should be able to:
-- Confirm the new "C5..." subscription staus is set to "Subscribed" in the Emulator subscriptions list
+- With the landing page set to the Sample App (from a previous challenge) confirm the new "C5..." subscription staus is set to "Subscribed" in the Emulator subscriptions list
 
 ## Learning Resources
 
