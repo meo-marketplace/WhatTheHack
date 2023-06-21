@@ -1,53 +1,45 @@
-# Challenge 06 - Exploring the APIs
+# Challenge 06 - Tracking entitlement (licensing)
 
 [< Previous Challenge](./Challenge-05.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-07.md)
 
-## Pre-requisites 
-
-Complete Challenge 5 to have a working understanding of implementing an API.
-
 ## Introduction
 
-So far you have the curated experience calling the APIs through the Emulator UI and built out an API call to activate a subscription, from which you should have an understanding of the parameters required to call the APIs directly. The next stage is to review the API requests and responses across the subscription workflow, the next level of depth, to know what you are building for your own integrations. 
+Once a purchase has been made, you will likely need to persist some information about the purchase and beneficiary so that when they use the application you can
+be sure they have the appropriate entitlement.
+
+There are many ways of ensuring that a user is allowed to use the application, this might be managed by your SaaS solution as a first-party implementation, or you might integrate with a third-party licensing service. Either way, you will want to allocate an entitlement to the user or tenant once a purchase has been made.
+
+An example of how to handle this could be:
+
+* *Tenant-wide* - Typically associated with flat-rate offers, this would allow _anyone_ from the purchaser tenant to access the application
+* *Manual assignment* - This approach allows the customer to allocate entitlements to individual users. The benefit of this approach is that it allows a customer to reallocate licenses/entitlements as they see fit
+* *Auto-assignment* - To reduce the administration overhead, some applications assign the number of per-user licenses purchased to a pool against the tenant, then the licenses are auto-assigned on a first-come-first-served basis. This is often in addition to manual assignment as the customer will likely need to reassign licenses as their use and requirement changes.
+* *Concurrent user access* - Some per-user license models allow the number of licenses purchased to be used by _anyone_ in the customer tenant concurrently but would be limited by the number of available licenses.
+
+This list isn't exhaustive, and occasionally these can used in conjunction with one another to ensure the best user experience.
 
 ## Description
-In this challenge we will us the REST APIs in the Emulator project to run through the workflow.
+
+This challenge will focus on the tenant-wide model. The goal will be to assign a license to the tenant once a purchase has been made.
 
 **Configuration Track**
-This challenge is optional but recommended, to get a sense of the workflow, the exchange between the Landing Page and the Emulator. The challenge looks and feels like a code track but is adding values on a VS Code page.
+
+*There is no additional configuration required to complete challenge 06.* 
+You should still work through the items in the Success Criteria section to ensure you are ready for the next challenge.
+
+The check will involve:
+- Make a purchase of a flat-rate offer, setting the beneficiary details in the purchase tile of the Marketplace section of the Emulator
+- Activate the subscription (of that purchase)
 
 **Code Track**
-Open the cloned Emulator project in VS Code.
 
-For this challenge you will need the **VS Code 'REST client' extension**. To check that it is installed select Extensions from the vertical toolbar on the left or Ctrl+Shift+X. 
-You should see the REST Client listed in the **INSTALLED** Extensions. 
-If the extension is not present refer to **Challenge 0**.
+- Adding to the code written for Challenge 04, when a subscription is activated by way of calling the `/api/activate`, assign an entitlement to the tenant in `api.ts`, below `// Challenge 06 - Tracking entitlement`.
 
-You will need the following in place to complete the challenge: 
-- at least one active per user subcription in the Emulator
-- a Marketplace Purchase token from the Emulator; when you generate the token select to Copy to Clipboard.
-- the file `rest_calls/subscription-apis.http` open in VS Code.
+*Note: An assignment can be made by calling the `saveEntitlement(tenantId, planId, active)` method exported from the `entitlement-api.ts` file.*
 
-Work through the following: 
-- Use a Token in the Emulator to resolve and activate using the **REST APIs in VS Code**
-- Using VS Code update the quantity and plan for an existing Subscruption
-- Exercise all Subscription APIs in the VS Code 
-
+Check using the steps detailed in the Configuration Track section above.
 
 ## Success Criteria
 
 To complete this challenge successfully, you should be able to:
-- Resolve a Marketplace Purchase token using the REST APIs
-- Activate a subscription using the APIs only
-- Exercise APIs against an existing Subscription created in the Emulator
-- Validate the JSON returned from API calls
-- Explain the different between Purchasher and Beneficiary - included in the Resolve Response
-
-## Learning Resources
-
-- [SaaS fulfillment Subscription APIs v2 in Microsoft commercial marketplace](https://learn.microsoft.com/en-gb/partner-center/marketplace/partner-center-portal/pc-saas-fulfillment-subscription-api)
-
-
-## Tips
-- Confirm all settings in the .http file - some values will vary from the standard configuration to your environment
-- Pay attention to the vriables in the APIs request strings - served via environment variables and request body
+- Verify the entitlement has been assigned by navigating to `/entitlements.html`

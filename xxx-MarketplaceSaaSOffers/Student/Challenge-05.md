@@ -1,73 +1,53 @@
-# Challenge 05 - Activate!
+# Challenge 05 - Exploring the APIs
 
 [< Previous Challenge](./Challenge-04.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-06.md)
 
-## Pre-requisites
+## Pre-requisites 
 
-You must have completed **Challenge 04 - Decoding purchase tokens**
+Complete Challenge 4 to have a working understanding of implementing an API.
 
 ## Introduction
 
-Now that we've resolved (decoded) the purchase token on our landing page, the next step is to activate the subscription.
-As seen in the Emulator challenge you would typically present some key properties from the decoded purchase to the customer on the landing and ask them to
-complete any additional details required for onboarding to your solution.
-
-When the customer submits the form, they are finalising the "purchase". You, as the ISV, then complete whatever steps
-are necessary to onboard them as a new customer. This can be an automated provisioning process or a set of manual steps.
-Once completed, you call the marketplace activate API to indicate that the customer has been onboarded, their service
-is available and billing should commence.
+So far you have the curated experience calling the APIs through the Emulator UI and built out an API call to activate a subscription, from which you should have an understanding of the parameters required to call the APIs directly. The next stage is to review the API requests and responses across the subscription workflow, the next level of depth, to know what you are building for your own integrations. 
 
 ## Description
-In this challenge we will activate a subscription, take note of where the actions are taken and where the changes happen, now that the Landing Page has been "removed" from the Emulator this is your asset updating what will be the Azure Marketplace in the live scenario.
- 
+In this challenge we will us the REST APIs in the Emulator project to run through the workflow.
+
 **Configuration Track**
-- Create a new purchase
-- The 'Subscription Name' should begin with 'C5' (if there are multiple subscriptions use this preface for each)
-- Resolve as before - note the subscription state in the Emulator
-- Activate in the Sample App - note the subscription state change
+This challenge is optional but recommended, to get a sense of the workflow, the exchange between the Landing Page and the Emulator. The challenge looks and feels like a code track but is adding values on a VS Code page.
 
 **Code Track**
-In this challenge you will implement a server-side method to call the marketplace `activate` API. We will keep things
-simple; we wont collect any additional customer details and we wont concern ourselves (at this stage) about taking
-"whatever steps are necessary to onboard them as a new customer". We will assume that's been handled elsewhere.
+Open the cloned Emulator project in VS Code.
 
-The client-side function is already implemented for you as `activateButtonClick()` in `landing.html`. This calls
-`api/activate` which is the API we need to implement. Routing has been configured to route POST requests to `api/activate`
-to the TypeScript function `activateSubscription()` defined in `src/service/api.ts`, under `// Challenge 05 - Activate!`.
+For this challenge you will need the **VS Code 'REST client' extension**. To check that it is installed select Extensions from the vertical toolbar on the left or Ctrl+Shift+X. 
+You should see the REST Client listed in the **INSTALLED** Extensions. 
+If the extension is not present refer to **Challenge 0**.
 
-In this challenge we will only be concerned with the function `activateSubscription()` in `src/service/api.ts`. The function
-currently has an empty implementation.
+You will need the following in place to complete the challenge: 
+- at least one active per user subcription in the Emulator
+- a Marketplace Purchase token from the Emulator; when you generate the token select to Copy to Clipboard.
+- the file `rest_calls/subscription-apis.http` open in VS Code.
 
-Your task it to update the `activateSubscription()` implementation to call the marketplace `activate` API and return the
-result to the caller handling any errors along the way.
+Work through the following: 
+- Use a Token in the Emulator to resolve and activate using the **REST APIs in VS Code**
+- Using VS Code update the quantity and plan for an existing Subscruption
+- Exercise all Subscription APIs in the VS Code 
 
-The emulator should be available on `http://localhost:3978`
-
-- Validate the request (check the necessary parameters)
-- Call the marketplace `activate` API
-- Check the result and return an appropriate status code
-- If the call is successful, return the response status and body (which will be displayed on the landing page)
 
 ## Success Criteria
 
 To complete this challenge successfully, you should be able to:
-- With the landing page set to the Sample App (from a previous challenge) confirm the new "C5..." subscription staus is set to "Subscribed" in the Emulator subscriptions list
+- Resolve a Marketplace Purchase token using the REST APIs
+- Activate a subscription using the APIs only
+- Exercise APIs against an existing Subscription created in the Emulator
+- Validate the JSON returned from API calls
+- Explain the different between Purchasher and Beneficiary - included in the Resolve Response
 
 ## Learning Resources
 
-- [Marketplace activate API](https://learn.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-subscription-api#post-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidactivateapi-versionapiversion)
-- [README for the marketplace emulator](https://github.com/microsoft/Commercial-Marketplace-SaaS-API-Emulator/blob/main/README.md)
-- [Configuring the emulator](https://github.com/microsoft/Commercial-Marketplace-SaaS-API-Emulator/blob/main/docs/config.md)
-- [Intro to TypeScript](https://www.typescriptlang.org/docs/)
-- [The Express request object](http://expressjs.com/en/4x/api.html#req)
+- [SaaS fulfillment Subscription APIs v2 in Microsoft commercial marketplace](https://learn.microsoft.com/en-gb/partner-center/marketplace/partner-center-portal/pc-saas-fulfillment-subscription-api)
+
 
 ## Tips
-
-- **publisherId** - to call the marketplace APIs, the marketplace needs to know the identity of the caller. Ordinarily
-this would be extracted from the AAD bearer token. With the emulator, we don't require AAD so we need some other
-way of providing an identity. We do this by adding a query string parameter `publisherId` on the request. For more
-details, see the emulator README.
-- In the application, a `publisherId` is available on the `Config` type, available at `req.app.locals.config`
-- `Config` also contains a `baseUrl` you can use. This is set to `http:\\localhost:3978` unless you are running in a
-Dev Container in VS Code. In this case localhost cannot be used and a shared Docker network is required. This should
-be set for you automatically.
+- Confirm all settings in the .http file - some values will vary from the standard configuration to your environment
+- Pay attention to the vriables in the APIs request strings - served via environment variables and request body

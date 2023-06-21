@@ -1,73 +1,61 @@
-# Challenge 04 - Decoding purchase tokens
+# Challenge 04 - Activate!
 
 [< Previous Challenge](./Challenge-03.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-05.md)
 
 ## Pre-requisites
 
-You must have completed **Challenge 03 - Emulate!**
+You must have completed **Challenge 03 - Decoding purchase tokens**
 
 ## Introduction
 
-In the Commercial Marketplace when a customer indicates their intention to purchase your solution in the marketplace, they are directed to your landing page passing the query string token that, as seen, contains the basic details about the customer and
-their desired purchase. The landing page is also your opportunity to capture any additional information as part of the
-onboarding and confirm the customer's purchase.
+Now that we've resolved (decoded) the purchase token on our landing page, the next step is to activate the subscription.
+As seen in the Emulator challenge you would typically present some key properties from the decoded purchase to the customer on the landing and ask them to
+complete any additional details required for onboarding to your solution.
 
-In Challenge 01, we started work on our own landing page. We extracted the token from the query string and stored it
-in a variable. In this challenge the landing page is extended to decode purchase tokens.
-
-This is the point in development, you have a basic landing page, where you direct the Emulator mock purchase to that page, instead of the built in page.
+When the customer submits the form, they are finalising the "purchase". You, as the ISV, then complete whatever steps
+are necessary to onboard them as a new customer. This can be an automated provisioning process or a set of manual steps.
+Once completed, you call the marketplace activate API to indicate that the customer has been onboarded, their service
+is available and billing should commence.
 
 ## Description
-
-In this challenge we will extend our landing page by calling the marketplace `resolve` API to decode a purchase token
-and display some details from the decoded token in the landing page UI.
-
+In this challenge we will activate a subscription, take note of where the actions are taken and where the changes happen, now that the Landing Page has been "removed" from the Emulator this is your asset updating what will be the Azure Marketplace in the live scenario.
+ 
 **Configuration Track**
-
-You should now be familiar with the marketplace workflow from the emulator. We are going to switch out the Emulator's inbuilt landing page for that in the sample app.
-- The URL is set in the Config page, copy the Landing Page URL from your sample app to the config box and Set. 
-**Note:** Change just the landing page
-- The 'Subscription Name' should begin with 'C4' (if there are multiple subscriptions just use this preface for each)
+- Create a new purchase
+- The 'Subscription Name' should begin with 'C5' (if there are multiple subscriptions use this preface for each)
+- Resolve as before - note the subscription state in the Emulator
+- Activate in the Sample App - note the subscription state change
 
 **Code Track**
+In this challenge you will implement a server-side method to call the marketplace `activate` API. We will keep things
+simple; we wont collect any additional customer details and we wont concern ourselves (at this stage) about taking
+"whatever steps are necessary to onboard them as a new customer". We will assume that's been handled elsewhere.
 
-Complete the Emulator config as above.
+The client-side function is already implemented for you as `activateButtonClick()` in `landing.html`. This calls
+`api/activate` which is the API we need to implement. Routing has been configured to route POST requests to `api/activate`
+to the TypeScript function `activateSubscription()` defined in `src/service/api.ts`, under `// Challenge 04 - Activate!`.
 
-In Challenge-01, you were working in the client-side JavaScript. In practice, most of the work will be done server-side
-to avoid cross-domain issues and manage the authentication with the marketplace APIs. In this challenge you will be
-implementing an API that will act as a proxy, calling the marketplace `resolve` API on behalf of our client-side JavaScript.
+In this challenge we will only be concerned with the function `activateSubscription()` in `src/service/api.ts`. The function
+currently has an empty implementation.
 
-The server component is a Node.js Express application written in TypeScript. You shouldn't have to concern yourself with
-the Node / Express aspects (aside from the pre-requisites) but you will be writing some TypeScript.
-
-The client-side function is already implemented for you as `decodeButtonClick()` in `landing.html`. This calls
-`api/resolve` which is the API we need to implement. Routing has been configured to route POST requests to `api/resolve`
-to the TypeScript function `resolveToken()` defined in `src/service/api.ts`.
-
-In this challenge we will only be concerned with the function `resolveToken()` in `src/service/api.ts`. The function
-currently has an empty implementation below the placeholder `// Challenge 04 - Decoding purchase tokens`.
-
-Your task it to update the `resolveToken()` implementation to call the marketplace `resolve` API and return the result
-to the caller handling any errors along the way.
+Your task it to update the `activateSubscription()` implementation to call the marketplace `activate` API and return the
+result to the caller handling any errors along the way.
 
 The emulator should be available on `http://localhost:3978`
 
-- Validate the request (check there is a token etc)
-- Call the marketplace `resolve` API, passing the token in the header
+- Validate the request (check the necessary parameters)
+- Call the marketplace `activate` API
 - Check the result and return an appropriate status code
-- If the call is successful, return the result as JSON
+- If the call is successful, return the response status and body (which will be displayed on the landing page)
 
 ## Success Criteria
 
 To complete this challenge successfully, you should be able to:
-
-- A purchase token posted from the Emulator to the Sample App landing page
-- The token is resolved in the Sample App - observe the token properties in the resolve token section
-- Your subscription is listed and is in "Pending" status in the Emulator subscriptions list
+- With the landing page set to the Sample App (from a previous challenge) confirm the new "C5..." subscription staus is set to "Subscribed" in the Emulator subscriptions list
 
 ## Learning Resources
 
-- [Marketplace resolve API](https://learn.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-subscription-api#post-httpsmarketplaceapimicrosoftcomapisaassubscriptionsresolveapi-versionapiversion)
+- [Marketplace activate API](https://learn.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-subscription-api#post-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidactivateapi-versionapiversion)
 - [README for the marketplace emulator](https://github.com/microsoft/Commercial-Marketplace-SaaS-API-Emulator/blob/main/README.md)
 - [Configuring the emulator](https://github.com/microsoft/Commercial-Marketplace-SaaS-API-Emulator/blob/main/docs/config.md)
 - [Intro to TypeScript](https://www.typescriptlang.org/docs/)
@@ -83,4 +71,3 @@ details, see the emulator README.
 - `Config` also contains a `baseUrl` you can use. This is set to `http:\\localhost:3978` unless you are running in a
 Dev Container in VS Code. In this case localhost cannot be used and a shared Docker network is required. This should
 be set for you automatically.
-- You can see the routing configuration to map route `api/resolve` to `resolveToken()` in `index.ts` line 34

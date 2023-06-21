@@ -23,6 +23,7 @@ You will need the following to complete this hack:
   - VS Code REST Client Extension from Huachao Mao - add once VS Code is installed
 - [Node js](https://nodejs.org/en) - install the version specific to your system. You can check if you have this installed in the CMD prompt / BASH by typing `node -v`.
 - [Microsoft Commercial Marketplace API Emulator](https://github.com/microsoft/Commercial-Marketplace-SaaS-API-Emulator)
+- Install the sample app from the .zip file provide for the track you want to do
 
 ## Description
 
@@ -37,6 +38,7 @@ The Microsoft Commercial Marketplace API Emulator is a tool that mimics the beha
 - Confirm the REST Client extension is installed
 - Login to Azure, at portal.azure.com 
 - Verify that the Azure Marketplace API Emulator home page is available at `http://localhost:3978`
+- Verify the Sample app is available on `http://localhost:3000`
 
 ## Tips
 
