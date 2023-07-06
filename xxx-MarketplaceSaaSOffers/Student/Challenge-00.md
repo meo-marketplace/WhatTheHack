@@ -6,7 +6,7 @@
 
 Thank you for participating in the Marketplace SaaS Offers What The Hack. Before you can hack, you will need to set up some prerequisites.
 
-**Note:** Other than the Sample App .zip file, all of the prerequisites are common to both configuration and code tracks.  
+**Note:** Other than using different Sample App .zip files, all of the prerequisites are common to both configuration and code tracks.  
 There are a number of ways to deploy and run the Emulator, please keep to the methods provided for ease of troubleshooting, should you need support from the coach.
 
 ## Prerequisites
@@ -75,7 +75,7 @@ The coach will provide a .zip file for the track you are on - **code** or **conf
 - In the Explorer pane on the left open the folder you unzipped the Sample App to
 - Open the Terminal in VS Code, to do this use the top menu Terminal > New Terminal or use the shortcut `Ctrl + '`
 - Type the following command to complete the install
-  - `npm build`
+  - `npm run build`
 
 You should now see the Node modules folder in the Explorer pane, you are now ready to run the Sample App.
 

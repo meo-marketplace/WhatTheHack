@@ -16,7 +16,7 @@ There are two scenarios covered in this challenge. The first is to satisfy the r
 
 - Define a multi-tenant Azure Active Directory App Registration
 - Configure the return URL for a Single Page Application as `{your base uri}/saas.html` and `{your base uri}/landing.html`, replacing `{your base uri}` with the URI your sample app is running on
-- Configure the MSAL_CLIENT_ID and MSAL_REDIRECT_BASEURI values appropriately in the esixting `.env` file, in the root of the Sample App
+- Configure the MSAL_CLIENT_ID and MSAL_REDIRECT_BASEURI values appropriately in the existing `.env` file, in the root of the Sample App
 
 **Code Track**
 

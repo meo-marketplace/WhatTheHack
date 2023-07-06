@@ -4,44 +4,16 @@
 
 ## Notes & Guidance
 
-The challenge updates the file: `src/client/landing.html`
+### Check point: 
+**CONFIRM** that the student has turned on **Requires Auth** in the Emulator, set in the Config page.
 
-The suggested code is listed below in the section **// -- REMOVE FOR STUDENT -- //**
+The challenge creates a second app registration and adds values to the .env file.
 
-```
-        // --- REMOVE FOR STUDENT --- //
-        var pca = new msal.PublicClientApplication({
-            auth: {
-              clientId: "8dd18476-3e96-4698-bc89-849e12659f9f"
-            },
-            cache: {
-              cacheLocation: "localStorage"
-            }
-          });
-        // -- REMOVE FOR STUDENT -- //
-        
-        async function signInClick() {
-          // -- REMOVE FOR STUDENT -- //
-          await pca.loginRedirect({
-            scopes: [],
-            redirectUri: "https://localhost:3000/landing.html"
-          });
-          // -- REMOVE FOR STUDENT -- //
-          // -- UNCOMMENT FOR STUDENT -- //
-          // alert("Challenge 09 - SSO");
-        }
+In the Azure portal the student will need to create a new **App Registration**, in Active Directory:
+- create as Single tenant
+- in Certificates and secrets create a new client secret - copy this to the `.env` file
+- copy the **Application (client) ID** to the `.env` file
 
-        // --- REMOVE FOR STUDENT --- //
-        const result = await pca.handleRedirectPromise();
-
-        if (result != null) {
-          accessToken = result.accessToken;
-
-          $('#accessToken-details').text(accessToken);
-          $('#user-details').attr('open', true);
-        }
-        // --- REMOVE FOR STUDENT --- //
-```
 
 **Troubleshooting:**
 If the authentication fails and the solution is configured correctly **and** the student is using WSL check the time on the WSL clock, type `date` in the WSL terminal.

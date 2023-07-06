@@ -5,33 +5,28 @@
 ## Notes & Guidance
 
 - navigate to the Emulator Config page
-- update the **Langing Page URL** to the solution Landing Page
-
-![Emulator Configuration](Images/emulator_config.png)
-
+- update the **Landing Page URL** to the solution Landing Page URL - this should be `http://localhost:3000/landing.html`
 - check on the Emulator **Marketplace Token** page that the **Post to landing page** button directs to the solution Landing Page
 
+**Code Track**
+The student should check the Challenge 3 section in `src/client/landing.html`
+The code updates are made in file: `src/service/api.ts`
 
-The challenge updates the file: `src/service/api.ts`
+The suggested code is listed below:
 
-The suggested code is listed below in the section **// -- REMOVE FOR STUDENT -- //**
+    // -- START REMOVE FOR CODE PATH -- //
 
-```
-  // -- REMOVE FOR STUDENT -- //
+    const resolveUrl = new URL(
+      `api/saas/subscriptions/resolve?publisherId=${config.publisherId}&api-version=2018-08-31`,
+      config.baseUrl
+    );
 
-  const resolveUrl = new URL(
-    `api/saas/subscriptions/resolve?publisherId=${config.publisherId}&api-version=2018-08-31`,
-    config.baseUrl
-  );
-
-  console.log('Calling RESOLVE.');
-
-  try {
     const resolveResponse = await fetch(resolveUrl, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
         'x-ms-marketplace-token': token,
+        ...headers
       },
     });
 
@@ -44,5 +39,4 @@ The suggested code is listed below in the section **// -- REMOVE FOR STUDENT -- 
     const resolveResult = await resolveResponse.json();
     console.log(`RESOLVE successful. ${resolveResult}`);
 
-    // -- REMOVE FOR STUDENT -- //
-```
+    // -- END REMOVE FOR CODE PATH -- //

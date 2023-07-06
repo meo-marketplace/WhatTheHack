@@ -4,22 +4,14 @@
 
 ## Notes & Guidance
 
-- You will need to provide the student with the `Resources.zip` file.
 - The student will be working with `src/client/landing.html` - a sample landing page implementation with elements of the code redacted.
 - There are comments inline to guide the students where to add the code. 
 
-The suggested code is listed below in the section **// -- REMOVE FOR STUDENT -- //**
+The suggested code is listed below, there are notes in the code comments to guide the student with set variables and existing functions.
 
+    // -- START REMOVE FOR CODE PATH -- //
 
-    function queryButtonClick() {
-    
-    // -- REMOVE FOR STUDENT -- //
-    
-    const urlParams = new URLSearchParams(window.location.search);
-    token = urlParams.get('token');
-    
-    // -- REMOVE FOR STUDENT -- //
-    
-    $('#raw-token').text(token);
-    $('#token-details').attr('open', true);          
-    }
+          const urlParams = new URLSearchParams(window.location.search);
+          token = urlParams.get('token');
+
+    // -- END REMOVE FOR CODE PATH -- //

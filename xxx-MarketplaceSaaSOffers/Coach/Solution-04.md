@@ -6,22 +6,20 @@
 
 The challenge updates the file: `src/service/api.ts`
 
-The suggested code is listed below in the section **// -- REMOVE FOR STUDENT -- //**
-```
-  // -- REMOVE FOR STUDENT -- //
+The suggested code is listed below:
 
-  const activateUrl = new URL(
-    `api/saas/subscriptions/${subscription}/activate?publisherId=${config.publisherId}&api-version=2018-08-31`,
-    config.baseUrl
-  );
+    // -- START REMOVE FOR CODE PATH -- //
 
-  console.log('Calling ACTIVATE.');
+    const activateUrl = new URL(
+      `api/saas/subscriptions/${subscription}/activate?publisherId=${config.publisherId}&api-version=2018-08-31`,
+      config.baseUrl
+    );
 
-  try {
     const activateResponse = await fetch(activateUrl, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        ...headers
       },
       body: JSON.stringify({ planId: planId }),
     });
@@ -35,5 +33,4 @@ The suggested code is listed below in the section **// -- REMOVE FOR STUDENT -- 
 
     console.log(`ACTIVATE successful. ${text}`);
 
-    // -- REMOVE FOR STUDENT -- //
-```
+    // -- END REMOVE FOR CODE PATH -- //

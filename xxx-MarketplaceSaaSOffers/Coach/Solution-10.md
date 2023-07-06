@@ -8,7 +8,7 @@ There is no code to write in this challenge just walking through the API calls i
 
 **Key Points to note**
 - the challenge uses a file in the Emulator: `rest_calls/subscription-apis.http`
-- the baseURL should be updated to the correst host
+- the baseURL should be updated to the correct host
 - the purchaseToken is copied from the Emulator UI
 - the subscription will be updated for some API calls
 - to call the APIs click **Send Request**
@@ -21,6 +21,6 @@ If the emulator is running and there is a problem with the emulator operations c
 
 ![Emulator Configuration](Images/emulator_config.png)
 
-If the REST Calls are not working makre sure the **REST Client** is installed in VS Code, it should be listed in Extensions.
+If the REST Calls are not working make sure the **REST Client** is installed in VS Code, it should be listed in Extensions.
 
 ![Emulator Configuration](Images/vscode_extension.png)
