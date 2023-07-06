@@ -33,7 +33,7 @@ The sample application provided by the coach includes the Landing Page - `landin
 
 **Configuration Tracks**
 - Load the sample app Landing Page
-- Update the URL to add the variable `?token` with a value of `my-token`
+- Update the URL to add the variable `?token=` with a value of `my-token`
 
 **Code Track**
 There are a number of JavaScript methods in `landing.html` (in src/client). In this challenge we will only be concerned with the
