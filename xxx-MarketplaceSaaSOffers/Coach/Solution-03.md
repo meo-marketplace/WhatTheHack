@@ -1,36 +1,48 @@
-# Challenge 03 - Emulate! - Coach's Guide 
+# Challenge 03 - Decoding purchase tokens - Coach's Guide 
 
 [< Previous Solution](./Solution-02.md) - **[Home](./README.md)** - [Next Solution >](./Solution-04.md)
 
 ## Notes & Guidance
 
-**Using the emulator**
-- navigate to the Emulator in a browser
-- enter the offerId and planId
-- optionally enter a friendly name for the plan
-- enter the email address
-- click **Generate Token** - until this point the panel on the right will be empty
-- under Token on the right click **Copy to Clipboard**
-- paste the copied token into a Base64 Decoder
-  - [GCHQ's CyberChef](https://gchq.github.io/CyberChef/) (provided in th student resources documentation)
-  - [Base64 Decode](https://www.base64decode.org/) 
-- click **Post to landing page**
-
-![Generate Token](Images/emulator_token.png)
-
-- on the **Landing Page** click to **Active subscription**
-
-![Landing Page](Images/emulator_landing_page.png)
-
-- go to the **Subscriptions** page
-- use the buttons to work through the subscription states
-- Webhook and API statuses are displayed in the top right
-
-![Subscriptions](Images/emulator_subscriptions.png)
-
-**Troubleshooting:**
-If the emulator is running and there is a problem with the emulator operations check the student's config settings on the URL / port settings.
+- navigate to the Emulator Config page
+- update the **Langing Page URL** to the solution Landing Page
 
 ![Emulator Configuration](Images/emulator_config.png)
 
+- check on the Emulator **Marketplace Token** page that the **Post to landing page** button directs to the solution Landing Page
 
+
+The challenge updates the file: `src/service/api.ts`
+
+The suggested code is listed below in the section **// -- REMOVE FOR STUDENT -- //**
+
+```
+  // -- REMOVE FOR STUDENT -- //
+
+  const resolveUrl = new URL(
+    `api/saas/subscriptions/resolve?publisherId=${config.publisherId}&api-version=2018-08-31`,
+    config.baseUrl
+  );
+
+  console.log('Calling RESOLVE.');
+
+  try {
+    const resolveResponse = await fetch(resolveUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-ms-marketplace-token': token,
+      },
+    });
+
+    if (!resolveResponse.ok) {
+      const text = await resolveResponse.text();
+      console.log(resolveResponse.status + '-' + text);
+      return res.status(400).send(text);
+    }
+
+    const resolveResult = await resolveResponse.json();
+    console.log(`RESOLVE successful. ${resolveResult}`);
+
+    // -- REMOVE FOR STUDENT -- //
+```

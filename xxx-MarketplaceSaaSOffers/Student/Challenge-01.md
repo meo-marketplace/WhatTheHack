@@ -1,58 +1,74 @@
-# Challenge 01 - Creating a landing page
+# Challenge 01 - Emulate!
 
 [< Previous Challenge](./Challenge-00.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-02.md)
 
+## Pre-requisites
+
+You must have **installed the emulator**
+
 ## Introduction
 
-There are 4 principle actors in the process that manages the lifecycle of transactable SaaS offers in the marketplace:
+Now we have the emulator working, we can exercise it a little to get a feel for the APIs and understand the emulator features.
 
-- The marketplace itself (and the storefront the user interacts with eg the Azure portal, AppSource)
-- A landing page for your solution for new customer onboarding
-- A webhook for your solution to listen for messages from the marketplace
-- An "integrations services" component that can call marketplace APIs on behalf of your application
+With emulating the marketplace SaaS Fulfillment APIs, the Emulator also offers configuration to mimic the real world, simple implementations of a landing page and webhook, and custom offer creation. 
 
-![marketplace actors](Images/Challenge1.png)
+We will implement our own landing page and webhook as we work through later challenges. For now, it will be useful to explore an end-to-end purchase scenario using the built-in Emulator features.
 
-We will cover all these areas in this *What The Hack*. In this challenge we will start with the landing page which is critical to the new customer onboarding experience.
-
-When a customer indicates their intention to purchase your solution in the marketplace, they are directed to your
-landing page. The query string contains a token that is used to understand some basic details about the customer and
-their desired purchase. The landing page is also your opportunity to capture any additional information as part of the
-onboarding journey and confirm the customer's purchase.
+When you browse to the emulator, you will be presented with the Emulator homepage and a menu showing the pages available:
+- Marketplace (homepage)
+  - Here you can configure and generate "synthetic" purchase tokens similar those used by the marketplace
+  - The format of marketplace tokens is undocumented - we can consider them to be opaque
+  - The only thing to keep in mind is that while they interact with your assets in the same way the individual tokens are not interchangeable between the Emulator and Commercial Marketplace
+- Subscriptions
+  - Displays details of the current subscriptions (purchases) and their status
+  - Displays the actions that have been taken on the subscription and the responses from the webhook
+  - On this page you can also simulate marketplace actions (eg the user may request a plan change via the portal)
+- Landing Page
+  - This is the default, built-in landing page implementation
+  - This page will automatically decode the token from the token query string parameter in the URL
+- Offers
+  - Create and configure custom offers - a simplified version of what you get in Partner Center
+  - Note, the full plan options are not available but are sufficient to track real world scenarios
+- Config
+  - Here, various aspects of the emulator can be configured
+  - When we have built our own landing page, we would configure the emulator to use it here
 
 ## Description
 
-In this challenge you will configure an initial landing page for your solution to extract a value from the query string, which would be a marketplace token in a live environment (or syntheic token from the Emulator).
+In this challenge we will run through the purchase workflow using the emulator, as an experience of the customer and then ISV perspective:
+- Create a custom offer - a lighter version of what is required in the Partner Center experience
+- Make a *purchase* of the custom offer - as a customer would in Marketplace, taking them to the landing page to accept the purchase
+- As the ISV, activate the subscription
+- Make changes to the plans, unsubscribe, etc, this uses APIs and webhook to simulate the marketplace actions
 
-The sample application provided by the coach includes the Landing Page - `landing.html`.  
-**Note:** the sample app and code is marked to the respective challenge, ignore any lower than the current challenge number.
+**Configuration and Code Tracks**
 
-**Configuration Tracks**
-- Load the sample app Landing Page
-- Update the URL to add the variable `?token` with a value of `my-token`
-
-**Code Track**
-There are a number of JavaScript methods in `landing.html` (in src/client). In this challenge we will only be concerned with the
-function `queryButtonClick()` which has an empty implementation.
-
-Your task is to update the function `queryButtonClick()` in `landing.html` to:
-- Extract the query parameters from the URL
-- Extract the value of the query string parameter `token`
-- Assign that value to the variable `token` (already declared at block scope)
-- Set the text property of the HTML element with id `my-token` to the value of the `token` variable
-- **Note:** jQuery is already referenced on the page for you to use if you would like
+- Make sure the Emulator is running - it should be available on `http://localhost:3978`
+- While the commercial team typically creates Offers and Plans (in Partner Center) using the custom plan feature of the Emulator gives and understanding of the basic dimensions of offers
+- Following this activity you should have an understanding of the lifecycle of an offer - and functionality of the Emulator
+- It is worth noting that the Emulator allows testing of certain APIs not available through Partner Center Preview Offers, for example, Suspend and Reinstate
 
 ## Success Criteria
 
 To complete this challenge successfully, you should be able to:
-- Verify that your landing page ("What the hack - Landing Page") displays
-- Change the URL to add the token
-- Verify the "my-token" is displayed in the landing page box labelled Challenge 01.
+
+- Describe the functions of the different sections of the Emulator
+- Created a custom Offer and Plan
+- Have purchased your custom offer and a second of the opposite type (per offer <> flat rate) in doing so:
+  - Generated and decoded a purchase token using any Base64 decoder utility
+  - Activated a subscription 
+- Used the Subscriptions page to observe actions for offer and plan states
+  - Observed the responses and delays
 
 ## Learning Resources
 
-- [Build the landing page for your transactable SaaS offer in the commercial marketplace](https://learn.microsoft.com/azure/marketplace/azure-ad-transactable-saas-landing-page)
-- [Managing the SaaS subscription life cycle](https://learn.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-life-cycle)
-- [How can I get query string values in JavaScript?](https://stackoverflow.com/questions/901115/how-can-i-get-query-string-values-in-javascript)
-- [URLSearchParams at MDN](https://developer.mozilla.org/docs/Web/API/URLSearchParams)
-- [jQuery Docs](https://api.jquery.com/category/manipulation/dom-insertion-inside/)
+- [States of a SaaS subscription](https://learn.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-life-cycle#states-of-a-saas-subscription)
+- [Implementing a webhook on the SaaS service](https://learn.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-webhook)
+
+## Tips
+
+- Give subscriptions meaningful names so you can track the status on the "Subscriptions" page
+- When you click buttons on the "Subscriptions" page, this simulates actions in the marketplace that generate webhook calls.
+Some of these calls need to be handled and some are just "FYI".
+- We will implement a webhook handler later, for now the emulator's built-in handler is working for us. For more
+information see "Implementing a webhook on the SaaS service" in the Learning Resources section

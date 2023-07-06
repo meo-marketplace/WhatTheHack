@@ -1,12 +1,26 @@
-# Challenge 10 - <Title of Challenge> - Coach's Guide 
+# Challenge 10 - Exploring the APIs - Coach's Guide 
 
-[< Previous Solution](./Solution-09.md) - **[Home](./README.md)** - [Next Solution >](./Solution-11.md)
+[< Previous Solution](./Solution-09.md) - **[Home](./README.md)** 
 
 ## Notes & Guidance
 
+There is no code to write in this challenge just walking through the API calls in **VS Code**. 
 
+**Key Points to note**
+- the challenge uses a file in the Emulator: `rest_calls/subscription-apis.http`
+- the baseURL should be updated to the correst host
+- the purchaseToken is copied from the Emulator UI
+- the subscription will be updated for some API calls
+- to call the APIs click **Send Request**
+- some API call will require variables to be updated in the request body
+
+![Emulator Rest Calls](Images/emulator_rest_calls.png)
 
 **Troubleshooting:**
-If the authentication fails and the solution is configured correctly **and** the student is using WSL check the time on the WSL clock, type `date` in the WSL terminal.
-If the WSL clock is out of sync with the Windows clock run the following command in the WSL terminal:
-`sudo hwclock -s`. Check the time again with `date` and retry the authentication.
+If the emulator is running and there is a problem with the emulator operations check the student's config settings on the URL / port settings.
+
+![Emulator Configuration](Images/emulator_config.png)
+
+If the REST Calls are not working makre sure the **REST Client** is installed in VS Code, it should be listed in Extensions.
+
+![Emulator Configuration](Images/vscode_extension.png)

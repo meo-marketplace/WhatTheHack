@@ -4,18 +4,18 @@
 
 ## Pre-requisites
 
-You must have completed **Challenge 02 - Emulate!**
+You must have completed **Challenge 02 - Creating a landing page**
 
 ## Introduction
 
-In the Commercial Marketplace when a customer indicates their intention to purchase your solution in the marketplace, they are directed to your landing page passing the query string token that, as seen, contains the basic details about the customer and
+In the Commercial Marketplace when a customer indicates their intention to purchase your solution in the marketplace, they are directed to your landing page passing the query string token that, as seen in the previous challenge, contains the basic details about the customer and
 their desired purchase. The landing page is also your opportunity to capture any additional information as part of the
 onboarding and confirm the customer's purchase.
 
-In Challenge 01, we started work on our own landing page. We extracted the token from the query string and stored it
+In Challenge 02, we started work on our own landing page. We extracted the token from the query string and stored it
 in a variable. In this challenge the landing page is extended to decode purchase tokens.
 
-This is the point in development, you have a basic landing page, where you direct the Emulator mock purchase to that page, instead of the built in page.
+This is the point in development, you have a basic landing page, where you direct the Emulator mock purchase to that page instead of its built-in landing page.
 
 ## Description
 
@@ -25,15 +25,16 @@ and display some details from the decoded token in the landing page UI.
 **Configuration Track**
 
 You should now be familiar with the marketplace workflow from the emulator. We are going to switch out the Emulator's inbuilt landing page for that in the sample app.
-- The URL is set in the Config page, copy the Landing Page URL from your sample app to the config box and Set. 
+- The URL is set in the Config page of the Emulator
+- You need the full URL of the Sample App landing page 
 **Note:** Change just the landing page
-- The 'Subscription Name' should begin with 'C4' (if there are multiple subscriptions just use this preface for each)
+- Use a meaningful subscription name, something relevant to this challenge, e.g. preface with "C3-"
 
 **Code Track**
 
 Complete the Emulator config as above.
 
-In Challenge-01, you were working in the client-side JavaScript. In practice, most of the work will be done server-side
+In Challenge-02, you were working in the client-side JavaScript. In practice, most of the work will be done server-side
 to avoid cross-domain issues and manage the authentication with the marketplace APIs. In this challenge you will be
 implementing an API that will act as a proxy, calling the marketplace `resolve` API on behalf of our client-side JavaScript.
 

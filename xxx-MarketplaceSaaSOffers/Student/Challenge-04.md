@@ -22,7 +22,7 @@ In this challenge we will activate a subscription, take note of where the action
  
 **Configuration Track**
 - Create a new purchase
-- The 'Subscription Name' should begin with 'C5' (if there are multiple subscriptions use this preface for each)
+- Use a meaningful subscription name, something relevant to this challenge, e.g. preface with "C4-"
 - Resolve as before - note the subscription state in the Emulator
 - Activate in the Sample App - note the subscription state change
 
@@ -51,7 +51,7 @@ The emulator should be available on `http://localhost:3978`
 ## Success Criteria
 
 To complete this challenge successfully, you should be able to:
-- With the landing page set to the Sample App (from a previous challenge) confirm the new "C5..." subscription staus is set to "Subscribed" in the Emulator subscriptions list
+- With the landing page set to the Sample App (from a previous challenge) confirm the new subscription status is set to "Subscribed" in the Emulator subscriptions list
 
 ## Learning Resources
 
@@ -62,12 +62,3 @@ To complete this challenge successfully, you should be able to:
 - [The Express request object](http://expressjs.com/en/4x/api.html#req)
 
 ## Tips
-
-- **publisherId** - to call the marketplace APIs, the marketplace needs to know the identity of the caller. Ordinarily
-this would be extracted from the AAD bearer token. With the emulator, we don't require AAD so we need some other
-way of providing an identity. We do this by adding a query string parameter `publisherId` on the request. For more
-details, see the emulator README.
-- In the application, a `publisherId` is available on the `Config` type, available at `req.app.locals.config`
-- `Config` also contains a `baseUrl` you can use. This is set to `http:\\localhost:3978` unless you are running in a
-Dev Container in VS Code. In this case localhost cannot be used and a shared Docker network is required. This should
-be set for you automatically.

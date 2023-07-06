@@ -1,37 +1,33 @@
-# Challenge 08 - Landing page Single Sign On
+# Challenge 08 - Authenticating with marketplace APIs
 
 [< Previous Challenge](./Challenge-07.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-09.md)
 
 ## Introduction
 
-In the vast majority of cases, a SaaS solution will need to know some information about the current user in order to ensure they are allowed to use the application.
+The SaaS Emulator doesn't require authentication when calling the emulated APIs, however the real SaaS Fulfillment APIs do!
 
-**Note:** This hack will not extend into configured Single-Sign-On into your own solution and will focus only on meeting the requirements of the landing page and checking that a particular tenant has access to the solution
+Authentication is handled using an Azure Active Directory bearer token (JWT) in the Authentication header of requests to the APIs. And in order to obtain this token, there needs to be some configuration.
 
 ## Description
 
-There are two scenarios covered in this challenge. The first is to satisfy the requirement of checking the beneficiary is present when activating the subscription (i.e. the correct user has signed into the landing page) and the second is to sign in a user and check whether they are allows to use the application.
+In this challenge we will configure a second App Registration that will be used to obtain an "App token" and call the emulated marketplace APIs securely. Unlike the previous App Registration, this one should be "single-tenant" as it will only ever be called by your own backend code and the token will always be used to access the marketplace APIs as your own tenant.
 
 **Configuration and Code Tracks**
 
-- Define a multi-tenant Azure Active Directory App Registration
-- Configure the return URL for a Single Page Application as `{your base uri}/saas.html` and `{your base uri}/landing.html`, replacing `{your base uri}` with the URI your sample app is running on
-- Configure the MSAL_CLIENT_ID and MSAL_REDIRECT_BASEURI values appropriately in the esixting `.env` file, in the root of the Sample App
+- Create a second Azure App Registration in Azure Active Directory. 
+- Configure the Emulator to use the Client ID and Secret for the purposes of authentication, in the same `.env` file as the other coded configuration settings.
 
 **Code Track**
 
-- In the section under `// Challenge 08 - SSO` Replace the alert with the code to sign in a user with a work account
-- Do this in both the `landing.html` and `saas.html` pages
+- Obtain an App token from Azure Active Directory
+- Add this to _all_ requests being made to the emulator
 
 ## Success Criteria
 
 To complete this challenge successfully, you should be able to:
-- Verify that a user is signed into the landing page _before_ the subscription is activated and an entitlement is assigned
-- Verify that the entitlement has been assigned to the correct tenant by checking the values on the `entitlements.html` page of the sample app
-- Sign a user into the `saas.html` page to check whether they have an entitlement assigned to them and are allowed to access the solution.
+- Verify that "Requires Auth" has been enabled on the emulator by checking the UI
+- Make a purchase and activate the subscription, ensuring that the calls to the emulator succeed
 
 ## Learning Resources
 
-- [Azure Active Directory App Registration](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app)
-- [Initialize MSAL.js 2.x apps](https://learn.microsoft.com/en-us/azure/active-directory/develop/msal-js-initializing-client-applications#initialize-msaljs-2x-apps)
-- [loginRedirect(RedirectRequest)](https://learn.microsoft.com/en-us/javascript/api/@azure/msal-browser/publicclientapplication#@azure-msal-browser-publicclientapplication-loginredirect)
+- [Obtain an access token for the Marketplace SaaS APIs](https://learn.microsoft.com/en-us/partner-center/marketplace/partner-center-portal/pc-saas-registration#how-to-get-the-publishers-authorization-token)
